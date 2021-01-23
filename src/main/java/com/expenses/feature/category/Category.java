@@ -17,7 +17,6 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Category extends BaseEntity {
-    @Column(unique = true)
     private String name;
     @ManyToOne
     private User user;

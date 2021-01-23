@@ -26,12 +26,17 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         if (!userRepository.findFirstByUsername(adminProperties.getUsername()).isPresent()) {
+            //dodawanie uzytkownika 'admin'
             final String passwordHash = passwordEncoder.encode(adminProperties.getPassword());
             final User admin = new User(adminProperties.getUsername(), passwordHash);
             userRepository.save(admin);
+
+            //dodawanie kategorii
             Category rozrywka = categoryRepository.save(new Category("rozrywka", admin));
             Category dom = categoryRepository.save(new Category("dom", admin));
             Category dojazd = categoryRepository.save(new Category("dojazd do pracy", admin));
+
+            //dodawanie wydatkow
             expenseRepository.save(new Expense("narty narty narty narty narty narty narty narty narty narty narty narty", 250, admin, rozrywka));
             expenseRepository.save(new Expense("kino", 30, admin, rozrywka));
             expenseRepository.save(new Expense("zakupy", 40, admin, dom));
@@ -40,6 +45,7 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
             expenseRepository.save(new Expense("bilet", 10, admin, dojazd));
         }
 
+        //uzytkownik 'kamil'
         if (!userRepository.findFirstByUsername("kamil").isPresent()) {
             final String passwordHash = passwordEncoder.encode("kamil");
             final User kamil = new User("kamil", passwordHash);
@@ -49,5 +55,15 @@ public class AppStartup implements ApplicationListener<ApplicationReadyEvent> {
             expenseRepository.save(new Expense("kino", 24.30, kamil, hobby));
             expenseRepository.save(new Expense("kieszonkowe", 100, kamil, dzieci));
         }
+
+        //uzytkownik 'karolina'
+        if (!userRepository.findFirstByUsername("karolina").isPresent()) {
+            final String passwordHash = passwordEncoder.encode("karolina");
+            final User karolina = new User("karolina", passwordHash);
+            userRepository.save(karolina);
+            Category dzieci = categoryRepository.save(new Category("dzieci", karolina));
+            expenseRepository.save(new Expense("kieszonkowe", 100, karolina, dzieci));
+        }
+
     }
 }

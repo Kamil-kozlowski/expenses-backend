@@ -4,7 +4,7 @@ Aplikacja bazodanowa służąca do rejestrowania własnych wydatków.
 
 Twórcy:
 
-Karolina Mierzejewska
+Karolina Mierzejewska (https://github.com/karmier)
 
 Kamil Kozłowski
 

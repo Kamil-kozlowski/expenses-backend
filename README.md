@@ -3,7 +3,9 @@
 Aplikacja bazodanowa służąca do rejestrowania własnych wydatków.
 
 Twórcy:
+
 Karolina Mierzejewska
+
 Kamil Kozłowski
 
 Wykorzystane technologie:

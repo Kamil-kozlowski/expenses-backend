@@ -18,7 +18,9 @@ Wykorzystane technologie:
 - Swagger (dokumentacja API)
 
 Aplikację można uruchomić przy użyciu
+
 `mvn spring-boot:run`
 
 Dokumentacja API dostępna jest pod tym adresem po uruchomieniu aplikacji:
+
 `http://localhost:8080/swagger-ui.html#/`
